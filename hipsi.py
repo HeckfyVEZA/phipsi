@@ -15,11 +15,11 @@ if table:
 
     coefs = list(polynome.coefficients)
 
-    poly_generate = " + ".join([f"a{i} * Fi^{polynome_power - i}" for i in range(polynome_power+1)])
+    poly_generate = " + ".join([f"a{polynome_power - i} * Fi^{polynome_power - i}" for i in range(polynome_power+1)])
     st.write(f"Полином: {poly_generate}")
     # coef_generate = " ; ".join([f"a{i} = {coefs[i]}" for i in range(polynome_power+1)])
     st.write(f"Коэффициенты:")
-    tab_co = [[f'a{i}', coefs[i]] for i in range(polynome_power+1)]
+    tab_co = [[f'a{polynome_power - i}', coefs[i]] for i in range(polynome_power+1)]
     st.dataframe(pd.DataFrame(tab_co, columns=['коэффициент', 'значение']))
 
     fig = go.Figure()
