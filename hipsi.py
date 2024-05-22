@@ -24,8 +24,5 @@ if table:
 
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=x, y=y, name='Psis', mode='markers', marker=dict(color='red')))
-    x_diap = [x[0], x[-1]]
-    dens = 1000
-    polix = [x_diap[0] + (x[diap[1]] - x[diap[0]]) * i / dens for i in range(dens+1)]
-    fig.add_trace(go.Scatter(x=polix, y=polynome(polix), name=f'f(x) = {poly_generate}', mode='lines', marker=dict(color='blue')))
+    fig.add_trace(go.Scatter(x=x, y=polynome(x), name=f'f(x) = {poly_generate}', mode='lines', marker=dict(color='blue')))
     st.plotly_chart(fig, use_container_width=True)
