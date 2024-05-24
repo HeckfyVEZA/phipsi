@@ -15,7 +15,7 @@ if table:
 
     coefs = list(polynome.coefficients)
 
-    poly_generate = " + ".join([f"a{i} * \phi^{'{'+str(polynome_power - i)+'}'}" for i in range(polynome_power+1)])
+    poly_generate = " + ".join([f"\psi = A{i} * \phi^{'{'+str(polynome_power - i)+'}'}" for i in range(polynome_power+1)])
     st.write(f"Полином:")
     st.latex(poly_generate)
     # coef_generate = " ; ".join([f"a{i} = {coefs[i]}" for i in range(polynome_power+1)])
