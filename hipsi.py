@@ -26,4 +26,4 @@ if table:
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=x, y=y, name='Испытания', mode='markers', marker=dict(color='red')))
     fig.add_trace(go.Scatter(x=x, y=polynome(x), name='Полином', mode='lines', marker=dict(color='blue')))
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig)
