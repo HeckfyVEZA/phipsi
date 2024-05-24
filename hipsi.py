@@ -26,6 +26,6 @@ if table:
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=x, y=y, name='Испытания', mode='markers', marker=dict(color='red')))
     fig.add_trace(go.Scatter(x=x, y=polynome(x), name='Полином', mode='lines', marker=dict(color='blue')))
-    fig.update_layout(title='График', xaxis_title='Fi', yaxis_title='Psis', showlegend=True, width=1000, height=500, legend=dict(yanchor="top", y=0.99, xanchor="left", x=0.01), font=dict(family="Arial", size=18, color="black"), autosize=False, margin=dict(l=50, r=50, b=100, t=100, pad=4), paper_bgcolor="white", plot_bgcolor="white", hovermode="x unified", hoverlabel=dict(bgcolor="white", font_color="black"), autosize=True, title_x=0.5, title_font=dict(family="Arial", size=24, color="black"), title_font_color="black", title_xanchor="center", title_yanchor="top", title_y=0.99)
+    fig.update_layout(title='График', xaxis_title='Fi', yaxis_title='Psis', showlegend=True, width=1000, height=500, legend=dict(yanchor="top", y=0.99, xanchor="left", x=0.01), font=dict(family="Arial", size=18, color="black"), autosize=False, margin=dict(l=50, r=50, b=100, t=100, pad=4), paper_bgcolor="white", plot_bgcolor="white", hovermode="x unified", hoverlabel=dict(bgcolor="white", font_color="black"), title_x=0.5, title_font=dict(family="Arial", size=24, color="black"), title_font_color="black", title_xanchor="center", title_yanchor="top", title_y=0.99)
 
     st.plotly_chart(fig)
