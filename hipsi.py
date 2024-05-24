@@ -2,16 +2,13 @@ import streamlit as st, pandas as pd, numpy as np, plotly.graph_objects as go
 st.set_page_config(layout="wide")
 table = st.file_uploader("Таблицу с фи и пси сюда")
 if table:
-    
     df = pd.read_excel(table)
     x, y = df["Fi"], df["Psis"]
     polynome_power = st.number_input("Степень полинома", value=4, step=1, min_value=1)
     polynome = np.poly1d(np.polyfit(x, y, polynome_power))
     coefs = list(polynome.coefficients)
     poly_generate = " + ".join([f"A_{'{'+ str(i) +'}'} * \phi^{'{'+str(polynome_power - i)+'}'}" for i in range(polynome_power+1)])
-    st.subheader(f"Полином:")
     st.latex("\psi_{s} = " + poly_generate)
-    st.write(f"Коэффициенты:")
     st.dataframe(pd.DataFrame([[f'A{i}', coefs[i]] for i in range(polynome_power+1)], columns=['коэффициент', 'значение']), hide_index=True)
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=x, y=y, name='Испытания', mode='markers', marker=dict(color='red', size=10)))
