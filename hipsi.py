@@ -2,6 +2,7 @@ import streamlit as st, pandas as pd, numpy as np, plotly.graph_objects as go
 st.set_page_config(layout="wide")
 table = st.file_uploader("Таблицу с фи и пси сюда")
 if table:
+    
     df = pd.read_excel(table)
     x, y = df["Fi"], df["Psis"]
     polynome_power = st.number_input("Степень полинома", value=4, step=1, min_value=1)
