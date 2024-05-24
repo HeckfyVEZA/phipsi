@@ -21,7 +21,7 @@ if table:
     # coef_generate = " ; ".join([f"a{i} = {coefs[i]}" for i in range(polynome_power+1)])
     st.write(f"Коэффициенты:")
     tab_co = [[f'A{i}', coefs[i]] for i in range(polynome_power+1)]
-    st.dataframe(pd.DataFrame(tab_co, columns=['коэффициент', 'значение']))
+    st.dataframe(pd.DataFrame(tab_co, columns=['коэффициент', 'значение']), hide_index=True)
 
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=x, y=y, name='Psis', mode='markers', marker=dict(color='red')))
