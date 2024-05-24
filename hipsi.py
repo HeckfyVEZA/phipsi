@@ -1,6 +1,5 @@
 import streamlit as st, pandas as pd, numpy as np, plotly.graph_objects as go
 x, y = pd.read_excel(st.file_uploader("Таблицу с фи и пси сюда"))[["Fi", "Psis"]].values.T
-# x, y = df["Fi"], df["Psis"]
 polynome_power = st.number_input("Степень полинома", value=4, step=1, min_value=1)
 polynome = np.poly1d(np.polyfit(x, y, polynome_power))
 st.latex("\psi_{s} = " + " + ".join([f"A_{'{'+ str(i) +'}'} * \phi^{'{'+str(polynome_power - i)+'}'}" for i in range(polynome_power+1)])[:-11].replace("^{1}", ""))
