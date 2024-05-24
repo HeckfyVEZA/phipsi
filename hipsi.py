@@ -7,7 +7,7 @@ if table:
     polynome = np.poly1d(np.polyfit(x, y, polynome_power))
     coefs = list(polynome.coefficients)
     st.latex("\psi_{s} = " + " + ".join([f"A_{'{'+ str(i) +'}'} * \phi^{'{'+str(polynome_power - i)+'}'}" for i in range(polynome_power+1)]))
-    st.dataframe(pd.DataFrame([[f'A{i}', coefs[i]] for i in range(polynome_power+1)], columns=['коэффициент', 'значение']), hide_index=True)
+    st.dataframe(pd.DataFrame([[f'A{i}', coefs[i]] for i in range(polynome_power+1)], columns=['коэффициент', 'значение']), hide_index=True, use_container_width=True)
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=x, y=y, name='Испытания', mode='markers', marker=dict(color='red', size=10)))
     fig.add_trace(go.Scatter(x=np.linspace(min(x), max(x), 50), y=polynome(np.linspace(min(x), max(x), 50)), name='Полином', mode='lines', marker=dict(color='blue')))
