@@ -20,7 +20,7 @@ if table:
     st.latex("\psi = " + poly_generate)
     # coef_generate = " ; ".join([f"a{i} = {coefs[i]}" for i in range(polynome_power+1)])
     st.write(f"Коэффициенты:")
-    tab_co = [[f'a{i}', coefs[i]] for i in range(polynome_power+1)]
+    tab_co = [[f'A{i}', coefs[i]] for i in range(polynome_power+1)]
     st.dataframe(pd.DataFrame(tab_co, columns=['коэффициент', 'значение']))
 
     fig = go.Figure()
