@@ -5,7 +5,6 @@ if table:
     x, y = df["Fi"], df["Psis"]
     polynome_power = st.number_input("Степень полинома", value=4, step=1, min_value=1)
     polynome = np.poly1d(np.polyfit(x, y, polynome_power))
-    # coefs = list(polynome.coefficients)
     st.latex("\psi_{s} = " + " + ".join([f"A_{'{'+ str(i) +'}'} * \phi^{'{'+str(polynome_power - i)+'}'}" for i in range(polynome_power+1)])[:-11].replace("^{1}", ""))
     st.dataframe(pd.DataFrame([[f'A{i}', polynome.coefficients[i]] for i in range(polynome_power+1)], columns=['коэффициент', 'значение']), hide_index=True, use_container_width=True)
     fig = go.Figure()
