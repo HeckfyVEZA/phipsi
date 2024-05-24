@@ -15,8 +15,9 @@ if table:
 
     coefs = list(polynome.coefficients)
 
-    poly_generate = " + ".join([f"a{i} * Fi^{polynome_power - i}" for i in range(polynome_power+1)])
-    st.write(f"Полином: {poly_generate}")
+    poly_generate = " + ".join([f"a{i} * \phi^{'{'+str(polynome_power - i)+'}'}" for i in range(polynome_power+1)])
+    st.write(f"Полином:")
+    st.latex(poly_generate)
     # coef_generate = " ; ".join([f"a{i} = {coefs[i]}" for i in range(polynome_power+1)])
     st.write(f"Коэффициенты:")
     tab_co = [[f'a{i}', coefs[i]] for i in range(polynome_power+1)]
