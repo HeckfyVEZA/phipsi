@@ -15,14 +15,12 @@ if table:
 
     coefs = list(polynome.coefficients)
 
-    poly_generate = " + ".join([f"A{i} * \phi^{'{'+str(polynome_power - i)+'}'}" for i in range(polynome_power+1)])
+    poly_generate = " + ".join([f"A_{'{'+ str(i) +'}'} * \phi^{'{'+str(polynome_power - i)+'}'}" for i in range(polynome_power+1)])
     st.subheader(f"Полином:")
-    st.latex("\psi = " + poly_generate)
-    # coef_generate = " ; ".join([f"a{i} = {coefs[i]}" for i in range(polynome_power+1)])
+    st.latex("\psi_{s} = " + poly_generate)
     st.write(f"Коэффициенты:")
     tab_co = [[f'A{i}', coefs[i]] for i in range(polynome_power+1)]
     st.dataframe(pd.DataFrame(tab_co, columns=['коэффициент', 'значение']), hide_index=True)
-
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=x, y=y, name='Испытания', mode='markers', marker=dict(color='red', size=10)))
     fig.add_trace(go.Scatter(x=x, y=polynome(x), name='Полином', mode='lines', marker=dict(color='blue')))
